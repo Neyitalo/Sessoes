@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "255951522957",
+    "firebase_url": "https://equinos-qi-8ade8.firebaseio.com",
+    "project_id": "equinos-qi-8ade8",
+    "storage_bucket": "equinos-qi-8ade8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255951522957:android:6f2d24bc1993bb690966c4",
+        "android_client_info": {
+          "package_name": "com.example.graficos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255951522957-q6lfn1bt7af9007j35cvn959blqgvq2k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.graficos",
+            "certificate_hash": "8bd3a88c44dcdf8a3b8e5edfad557a5dd808cd8a"
+          }
+        },
+        {
+          "client_id": "255951522957-4jrsum1gs01d7vui2d4u3h20btrtrehd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV8ZVBo0ZvNHi2rfK02pPDLG95Od7QzaM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "255951522957-4jrsum1gs01d7vui2d4u3h20btrtrehd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
