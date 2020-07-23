@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class GraficoBarra extends AppCompatActivity {
     Graficos g;
     BarChart graficoBarra;
+    int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
