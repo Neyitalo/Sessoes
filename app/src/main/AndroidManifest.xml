@@ -16,8 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Visao.Mediana" />
-        <activity android:name=".Visao.Media" />
         <activity android:name=".Visao.GraficoBarra" />
         <activity android:name=".Visao.DefineGrafico"/>
 

@@ -16,85 +16,20 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Estatistica {
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    ArrayList<Sessoes> sessoes;
     float media = 0, mediana = 0;
     float valY[] = new float[100];
 
-    public String teste(){
-        return "TESTEEEEEE";
+    public float getMedia(final ArrayList<Sessoes> sessoes){
+       calculaMedia(sessoes);
+       return media;
     }
 
-    public void definiMedia(final TextView textView){
-        sessoes = new ArrayList<Sessoes>();
-
-        db.collection("sessoes")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() { // Colsulta simples Java Android/Sem Listener/ Usar o FireStore
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                sessoes.add((Sessoes) document.toObject(Sessoes.class));
-                                Log.i("FireStore", document.getId() + " => " + document.getData());
-                            }
-
-                           calculaMedia();
-
-                            DecimalFormat f = new DecimalFormat("0.00");
-
-                             System.out.println("Média: "+getMedia());
-                             textView.setText(f.format(media)+"%");
-                            System.out.println("A THREAD FINALIZOU SUA EXECUÇÃO");
-                        } else {
-                            Log.i("FireStore", "Error getting documents: ", task.getException());
-                        }
-
-                    }
-
-                });
+    public float getMediana(final ArrayList<Sessoes> sessoes){
+       calculaMediana(sessoes);
+       return mediana;
     }
 
-    public void definiMediana(final TextView textView){
-        sessoes = new ArrayList<Sessoes>();
-
-        db.collection("sessoes")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() { // Colsulta simples Java Android/Sem Listener/ Usar o FireStore
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                sessoes.add((Sessoes) document.toObject(Sessoes.class));
-                                Log.i("+", document.getId() + " => " + document.getData());
-                            }
-
-                            calculaMediana();
-
-                            DecimalFormat f = new DecimalFormat("0.00");
-
-                            System.out.println("Mediana: "+getMediana());
-                            textView.setText(f.format(mediana)+"%");
-
-                            System.out.println("A THREAD FINALIZOU SUA EXECUÇÃO");
-                        } else {
-                            Log.i("FireStore", "Error getting documents: ", task.getException());
-                        }
-
-                    }
-
-                });
-    }
-
-    public float getMediana(){
-        return mediana;
-    }
-
-    public float getMedia(){
-        return media;
-    }
-
-    private void calculaMedia(){
+    private void calculaMedia(ArrayList<Sessoes> sessoes){
         for(int i = 0; i < sessoes.size(); i++){
             media = media+sessoes.get(i).getPorcentagem();
         }
@@ -103,11 +38,11 @@ public class Estatistica {
         System.out.println("PASSEI AQUI"+media);
     }
 
-    private void calculaMediana(){
+    private void calculaMediana(ArrayList<Sessoes> sessoes){
         for (int i = 0; i < sessoes.size(); i++) {
             valY[i] = sessoes.get(i).getPorcentagem();
         }
-        ordena();
+        ordena(sessoes);
         for (int i = 0; i < sessoes.size(); i++) {
             System.out.println("Porcentagem: "+valY[i]);
         }
@@ -123,7 +58,7 @@ public class Estatistica {
         }
     }
 
-    private void ordena(){
+    private void ordena(ArrayList<Sessoes> sessoes){
         for (int i = 0; i < sessoes.size(); i++)
         {
             for (int j = 0; j < sessoes.size(); j++)
