@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class GraficoBarra extends AppCompatActivity {
     Graficos g;
     BarChart graficoBarra;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +28,8 @@ public class GraficoBarra extends AppCompatActivity {
 
         g.getGraficoBarras(graficoBarra, getSessoes());
 
-     }
+
+    }
 
     private void layoutGraficoBarra() {
         Legend legend = graficoBarra.getLegend();

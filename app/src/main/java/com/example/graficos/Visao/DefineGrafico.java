@@ -69,15 +69,13 @@ public class DefineGrafico extends AppCompatActivity {
     }
 
     private void setTextMedia(){
-        t = new Estatistica();
-        DecimalFormat f = new DecimalFormat("0.00");
-        textViewMedia.setText("Média: "+f.format(t.getMedia(getSessoes()))+"%");
+        t = new Estatistica(getSessoes());
+        textViewMedia.setText("Média: "+t.getMedia()+"%");
     }
 
     private void setTextMediana(){
-        t = new Estatistica();
-        DecimalFormat f = new DecimalFormat("0.00");
-        textViewMediana.setText("Mediana: "+f.format(t.getMediana(getSessoes()))+"%");
+        t = new Estatistica(getSessoes());
+        textViewMediana.setText("Mediana: "+t.getMediana()+"%");
     }
 
     private void setTextSessaoSucesso(){

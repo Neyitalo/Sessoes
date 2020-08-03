@@ -64,6 +64,7 @@ public class Graficos {
                         data.setDrawValues(false);
                         data.setValueTextSize(15f);
 
+
                         graficoLinha.setData(data);
                         graficoLinha.invalidate();
                         System.out.println("A THREAD FINALIZOU SUA EXECUÇÃO");

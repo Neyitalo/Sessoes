@@ -1,16 +1,7 @@
 package com.example.graficos.Dominio;
 
-import android.util.Log;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-
 import com.example.graficos.Persistencia.Sessoes;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -18,15 +9,21 @@ import java.util.ArrayList;
 public class Estatistica {
     float media = 0, mediana = 0;
     float valY[] = new float[100];
+    DecimalFormat f = new DecimalFormat("0.00");
+    ArrayList<Sessoes> sessoes;
 
-    public float getMedia(final ArrayList<Sessoes> sessoes){
-       calculaMedia(sessoes);
-       return media;
+    public Estatistica(ArrayList<Sessoes> sessoes){
+        this.sessoes = sessoes;
     }
 
-    public float getMediana(final ArrayList<Sessoes> sessoes){
-       calculaMediana(sessoes);
-       return mediana;
+    public String getMedia(){
+        calculaMedia(sessoes);
+        return f.format(media);
+    }
+
+    public String getMediana(){
+        calculaMediana(sessoes);
+        return f.format(mediana);
     }
 
     private void calculaMedia(ArrayList<Sessoes> sessoes){

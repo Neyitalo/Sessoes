@@ -3,6 +3,7 @@ package com.example.graficos.Visao;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import com.example.graficos.Dominio.Graficos;
@@ -29,6 +30,7 @@ public class GraficoLinha extends AppCompatActivity {
         layoutGraficoLinha();
 
                         g.getGraficoLinha(graficoLinha, getSessoes());
+
 
                     }
 
